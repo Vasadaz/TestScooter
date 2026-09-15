@@ -30,7 +30,7 @@ class MainPage(BasePage):
     @allure.step("Кликнуть по вопросу FAQ №{index}")
     def click_faq_question(self, index):
         """Кликнуть по вопросу FAQ"""
-        locator = Loc.faq_question(index)
+        locator = Loc.get_locator_faq_question(index)
         self.scroll_to_element(locator)
         self.click(locator)
 
@@ -38,12 +38,12 @@ class MainPage(BasePage):
     def get_faq_answer_text(self, question_text):
         """Раскрыть вопрос и получить текст ответа"""
         # Скроллим и кликаем по вопросу
-        question_locator = Loc.faq_question(question_text)
+        question_locator = Loc.get_locator_faq_question(question_text)
         self.scroll_to_element(question_locator)
         self.click(question_locator)
 
         # Явно ждём видимости раскрытой панели (без @hidden)
-        answer_locator = Loc.faq_answer(question_text)
+        answer_locator = Loc.get_locator_faq_answer(question_text)
         return self.wait_visible(answer_locator).text
 
     @allure.step("Кликнуть по логотипу 'Самокат'")

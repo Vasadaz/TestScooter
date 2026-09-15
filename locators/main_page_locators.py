@@ -20,7 +20,7 @@ class MainPageLocators:
     COOKIE_BUTTON = (By.ID, "rcc-confirm-button")
 
     @staticmethod
-    def faq_question(question_text):
+    def get_locator_faq_question(question_text):
         """Кнопка вопроса FAQ по её тексту."""
         return (
             By.XPATH,
@@ -29,7 +29,7 @@ class MainPageLocators:
         )
 
     @staticmethod
-    def faq_answer(question_text):
+    def get_locator_faq_answer(question_text):
         """Абзац ответа именно у раскрытой (без hidden) панели."""
         return (
             By.XPATH,
