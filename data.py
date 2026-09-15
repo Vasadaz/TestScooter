@@ -1,8 +1,6 @@
 """
 Наборы данных для тестов
 """
-from datetime import date, timedelta
-
 from faker import Faker
 
 fake = Faker("ru_RU")
