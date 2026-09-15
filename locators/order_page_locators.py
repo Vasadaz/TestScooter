@@ -26,6 +26,6 @@ class OrderPageLocators:
         "//div[starts-with(@class, 'Order_Buttons')]/button[text()='Заказать']",
     )
 
-    # --- Модальные окна подтверждения ---
+    # --- Модальные окна подтверждения оформления заказа ---
     CONFIRM_YES_BUTTON = (By.XPATH, "//button[text()='Да']")
-    SUCCESS_MODAL = (By.XPATH, "//div[starts-with(@class, 'Order_ModalHeader')]")
+    SUCCESS_MODAL = (By.XPATH, "//div[starts-with(@class, 'Order_ModalHeader') and text()='Заказ оформлен']")
