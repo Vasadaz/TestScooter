@@ -8,7 +8,7 @@ from locators import OrderPageLocators as Loc
 class OrderPage(BasePage):
     """Страница заказа: две формы (данные клиента + аренда) и модального окна подтверждения."""
 
-    # ---------- Форма 1 ----------
+    # Форма 1
     @allure.step("Заполнить форму с данными пользователя")
     def fill_user_form(self, name, surname, address, metro_index, phone):
         """Заполнить форму с данными пользователя"""
@@ -30,7 +30,7 @@ class OrderPage(BasePage):
         """Нажать кнопку 'Далее'"""
         self.click(Loc.NEXT_BUTTON)
 
-    # ---------- Форма 2 ----------
+    # Форма 2
     @allure.step("Заполнить форму аренды")
     def fill_order_form(self, date, period_index, color, comment):
         """Заполнить форму аренды"""
@@ -70,7 +70,7 @@ class OrderPage(BasePage):
         """Проверить появление модального окна об успешном заказе"""
         return self.wait_visible(Loc.SUCCESS_MODAL).is_displayed()
 
-    # ---------- Полный флоу ----------
+    # Полный флоу
     @allure.step("Оформить заказ целиком по набору данных")
     def create_order(self, data):
         """Оформить заказ"""

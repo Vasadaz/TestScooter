@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 class OrderPageLocators:
     """Локаторы страницы заказа: форма клиента, форма аренды, модального окна."""
 
-    # --- Форма 1: данные пользователя ---
+    # Форма 1: данные пользователя
     NAME_FIELD = (By.XPATH, "//input[@placeholder='* Имя']")
     SURNAME_FIELD = (By.XPATH, "//input[@placeholder='* Фамилия']")
     ADDRESS_FIELD = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
@@ -14,7 +14,7 @@ class OrderPageLocators:
     PHONE_FIELD = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
     NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
 
-    # --- Форма 2: про аренду ---
+    # Форма 2: про аренду
     DATE_FIELD = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
     PERIOD_DROPDOWN = (By.CLASS_NAME, "Dropdown-placeholder")
     PERIOD_OPTION = (By.CLASS_NAME, "Dropdown-option")
@@ -26,6 +26,6 @@ class OrderPageLocators:
         "//div[starts-with(@class, 'Order_Buttons')]/button[text()='Заказать']",
     )
 
-    # --- Модальные окна подтверждения оформления заказа ---
+    # Модальные окна подтверждения оформления заказа
     CONFIRM_YES_BUTTON = (By.XPATH, "//button[text()='Да']")
     SUCCESS_MODAL = (By.XPATH, "//div[starts-with(@class, 'Order_ModalHeader') and text()='Заказ оформлен']")

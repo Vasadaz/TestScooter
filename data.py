@@ -7,7 +7,7 @@ from faker import Faker
 
 fake = Faker("ru_RU")
 
-# --- URL ---
+# URL
 class Urls:
     """
     Набор используемых URL
@@ -22,21 +22,20 @@ def generate_order_data():
     Наборы данных для заказа (параметризация позитивного сценария)
     Генерируем через Faker, чтобы данные были уникальными на каждом прогоне.
     """
-    delivery_date = fake.date_between(start_date="+1d", end_date="+30d")
     return {
         "name": fake.first_name(),
         "surname": fake.last_name(),
         "address": "Москва",
-        "metro": fake.random_int(min=1, max=50),   # индекс станции метро в выпадающем списке
+        "metro": fake.random_int(min=1, max=50),  # индекс станции метро в выпадающем списке
         "phone": fake.numerify("+7##########"),
-        "date": delivery_date.strftime("%d.%m.%Y"),
-        "period": fake.random_int(min=0, max=6),    # индекс срока аренды
+        "date": fake.date_between(start_date="+1d", end_date="+30d").strftime("%d.%m.%Y"),
+        "period": fake.random_int(min=0, max=6),  # индекс срока аренды
         "color": fake.random_element(["black", "grey"]),
         "comment": fake.text(max_nb_chars=20),
     }
 
 
-# --- Данные FAQ: пары "вопрос" -> "ответ" (дословно из вёрстки сайта) ---
+# Данные FAQ: пары "вопрос" -> "ответ" (дословно из вёрстки сайта)
 FAQ_ITEMS = [
     {
         "id": "FAQ_1",
