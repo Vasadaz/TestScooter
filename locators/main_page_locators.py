@@ -16,23 +16,12 @@ class MainPageLocators:
     #  Cookie 
     COOKIE_BUTTON = (By.ID, "rcc-confirm-button")
 
-    @staticmethod
-    def get_locator_faq_question(question_text):
-        """Кнопка вопроса FAQ по её тексту."""
-        return (
+    # FAQ
+    FAQ_QUESTION = (By.XPATH, "//div[@data-accordion-component='AccordionItemButton'][normalize-space(text())='{}']")
+    FAQ_ANSWER = (
             By.XPATH,
-            f"//div[@data-accordion-component='AccordionItemButton']"
-            f"[normalize-space(text())='{question_text}']",
+            "//div[@data-accordion-component='AccordionItemButton']"
+            "[normalize-space(text())='{}']"
+            "/ancestor::div[@class='accordion__item']"
+            "//div[@data-accordion-component='AccordionItemPanel' and not(@hidden)]/p",
         )
-
-    @staticmethod
-    def get_locator_faq_answer(question_text):
-        """Абзац ответа именно у раскрытой (без hidden) панели."""
-        return (
-            By.XPATH,
-            f"//div[@data-accordion-component='AccordionItemButton']"
-            f"[normalize-space(text())='{question_text}']"
-            f"/ancestor::div[@class='accordion__item']"
-            f"//div[@data-accordion-component='AccordionItemPanel' and not(@hidden)]/p",
-        )
-
